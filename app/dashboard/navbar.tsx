@@ -8,12 +8,21 @@ export default function Navbar({
   onMenuClick: () => void;
 }) {
   return (
-    <header className="md:hidden flex items-center justify-between border-b px-4 py-3">
-      <h1 className="text-lg font-bold">Doupple</h1>
+    <header className="flex items-center justify-between border-b border-gray-200 bg-white px-6 py-4">
+      {/* Left side */}
+      <h1 className="text-lg font-bold text-gray-900 tracking-tight">Dashboard</h1>
 
-      <button onClick={onMenuClick}>
-        <Menu className="h-6 w-6" />
-      </button>
+      {/* Right side */}
+      <div className="flex items-center gap-4">
+        {/* Hamburger — mobile only */}
+        <button
+          onClick={onMenuClick}
+          className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label="Toggle menu"
+        >
+          <Menu className="h-5 w-5 text-gray-700" />
+        </button>
+      </div>
     </header>
   );
 }
