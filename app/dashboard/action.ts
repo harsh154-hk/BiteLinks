@@ -3,6 +3,7 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { generateShortCode } from "@/lib/utils/generateShortCode";
 import { revalidatePath } from "next/cache";
+import { unstable_noStore as noStore } from "next/cache";
 
 export async function createShortUrl(originalUrl: string) {
   // ✅ Normalize URL (real SaaS behavior)
@@ -37,6 +38,8 @@ export async function createShortUrl(originalUrl: string) {
 }
 
 export async function getUserUrls() {
+  noStore(); // 🔥 ABSOLUTELY REQUIRED
+
   const supabase = await createSupabaseServerClient();
 
   const {

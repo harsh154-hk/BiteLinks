@@ -4,8 +4,13 @@ import { createShortUrl } from "./action";
 import { getUserUrls } from "./action";
 import { deleteShortUrl } from "./action";
 import DeleteUrlButton from "./DeleteUrlButton";
+import { cookies } from "next/headers";
+
+
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
+  cookies();
   const urls = await getUserUrls();
 
   return (
@@ -45,14 +50,8 @@ export default async function DashboardPage() {
               <p className="text-gray-500 break-all">{url.original_url}</p>
             </div>
 
-            <form
-              action={async () => {
-                "use server";
-                await deleteShortUrl(url.id);
-              }}
-            >
-              <DeleteUrlButton id={url.id} />
-            </form>
+            <DeleteUrlButton id={url.id} />
+
           </div>
         ))}
       </div>
