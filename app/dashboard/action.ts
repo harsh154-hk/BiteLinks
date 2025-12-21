@@ -58,3 +58,27 @@ export async function getUserUrls() {
 
   return data;
 }
+
+export async function deleteShortUrl(id: string) {
+  const supabase = await createSupabaseServerClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new Error("Not authenticated");
+  }
+
+  const { error } = await supabase
+    .from("short_urls")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    throw new Error("Failed to delete URL");
+  }
+
+  // 🔥 Refresh dashboard automatically
+  revalidatePath("/dashboard");
+}

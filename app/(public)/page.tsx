@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <section className="p-8">
@@ -8,6 +10,7 @@ export default function HomePage() {
       <p className="mt-4 text-gray-600">
         Build your own AI chatbot for your website.
       </p>
+      <Link href="/login"> <button>Try Now</button></Link>
     </section>
   );
 }

@@ -2,6 +2,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { createShortUrl } from "./action";
 import { getUserUrls } from "./action";
+import { deleteShortUrl } from "./action";
+import DeleteUrlButton from "./DeleteUrlButton";
 
 export default async function DashboardPage() {
   const urls = await getUserUrls();
@@ -13,9 +15,7 @@ export default async function DashboardPage() {
       <form
         action={async (formData) => {
           "use server";
-          const originalUrl = formData.get(
-            "url"
-          ) as string;
+          const originalUrl = formData.get("url") as string;
           await createShortUrl(originalUrl);
         }}
         className="flex gap-2"
@@ -26,26 +26,35 @@ export default async function DashboardPage() {
 
       <div className="space-y-2">
         {urls.map((url) => (
-  <div
-    key={url.id}
-    className="rounded border p-2 text-sm space-y-1"
-  >
-    <p>
-      <strong>Short URL:</strong>{" "}
-      <a
-        href={`/r/${url.short_code}`}
-        target="_blank"
-        className="text-blue-600 underline"
-      >
-        {`http://localhost:3000/r/${url.short_code}`}
-      </a>
-    </p>
+          <div
+            key={url.id}
+            className="rounded border p-3 text-sm space-y-2 flex justify-between items-start"
+          >
+            <div>
+              <p>
+                <strong>Short URL:</strong>{" "}
+                <a
+                  href={`/r/${url.short_code}`}
+                  target="_blank"
+                  className="text-blue-600 underline"
+                >
+                  {`/r/${url.short_code}`}
+                </a>
+              </p>
 
-    <p className="text-gray-500 break-all">
-      {url.original_url}
-    </p>
-  </div>
-))}
+              <p className="text-gray-500 break-all">{url.original_url}</p>
+            </div>
+
+            <form
+              action={async () => {
+                "use server";
+                await deleteShortUrl(url.id);
+              }}
+            >
+              <DeleteUrlButton id={url.id} />
+            </form>
+          </div>
+        ))}
       </div>
     </div>
   );
