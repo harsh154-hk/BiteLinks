@@ -1,44 +1,31 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import Sidebar from "./sidebar";
+import Navbar from "./navbar";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       {/* Sidebar */}
-      <aside className="w-64 border-r bg-gray-50 p-4">
-        <h2 className="text-xl font-bold mb-6">Doupple</h2>
-
-        <nav className="space-y-2">
-          <Link
-            href="/dashboard"
-            className="block rounded px-3 py-2 hover:bg-gray-200"
-          >
-            URL Shortener
-          </Link>
-
-          <Link
-            href="/dashboard/settings"
-            className="block rounded px-3 py-2 hover:bg-gray-200"
-          >
-            Settings
-          </Link>
-        </nav>
-      </aside>
+      <Sidebar
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
 
       {/* Main area */}
-      <div className="flex flex-1 flex-col">
-        {/* Top navbar */}
-        <header className="border-b p-4">
-          Dashboard
-        </header>
+      <div className="flex-1 flex flex-col">
+        {/* Mobile Navbar */}
+        <Navbar onMenuClick={() => setSidebarOpen(true)} />
 
         {/* Page content */}
-        <main className="flex-1 p-6 bg-white">
-          {children}
-        </main>
+        <main className="p-6">{children}</main>
       </div>
     </div>
   );
