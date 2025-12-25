@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import React from "react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,7 +30,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <elevenlabs-convai agent-id="agent_0901kb3f98vqe0g97va8j3tcdmqw"></elevenlabs-convai>
+        {React.createElement('elevenlabs-convai', {
+          'agent-id': 'agent_0901kb3f98vqe0g97va8j3tcdmqw'
+        })}
         <Script
           src="https://unpkg.com/@elevenlabs/convai-widget-embed"
           strategy="lazyOnload"
