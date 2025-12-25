@@ -1,3 +1,4 @@
+/// <reference path="../types/global.d.ts" />
 "use client";
 
 import React from "react";
