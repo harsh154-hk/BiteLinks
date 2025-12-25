@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import ElevenLabsWidget from "@/components/ElevenLabsWidget";
 import "./globals.css";
 
@@ -31,10 +30,6 @@ export default function RootLayout({
       >
         {children}
         <ElevenLabsWidget />
-        <Script
-          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   );
