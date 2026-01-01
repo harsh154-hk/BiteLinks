@@ -128,8 +128,8 @@ body {
   }
 }
 
-/* ElevenLabs ConvAI Widget Positioning */
-elevenlabs-convai {
+/* Doupple Widget Positioning */
+iframe[src*="doupple.com"] {
   position: fixed;
   bottom: 20px;
   right: 20px;
