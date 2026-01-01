@@ -3,17 +3,16 @@
 import Script from "next/script";
 import React from "react";
 
-export default function ElevenLabsWidget() {
+export default function DouppleWidget() {
   return (
     <>
-      {React.createElement("elevenlabs-convai", {
-        "agent-id": "agent_0901kb3f98vqe0g97va8j3tcdmqw",
-      })}
-
       <Script
-        src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+        src="http://localhost:3000/widget.js"
+        data-agent-id="5e17262b-ec17-41da-9dbf-e1d4b7578558"
         strategy="lazyOnload"
       />
     </>
   );
 }
+
+DouppleWidget.displayName = "DouppleWidget";
