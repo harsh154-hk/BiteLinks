@@ -15,4 +15,4 @@ export default function DouppleWidget() {
   );
 }
 
-DouppleWidget.displayName = "DouppleWidget";
+
