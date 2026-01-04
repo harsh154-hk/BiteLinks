@@ -129,7 +129,7 @@ body {
 }
 
 /* Doupple Widget Positioning */
-iframe[src*="doupple.com"] {
+iframe[src*="https://postdisapproved-gerda-suborganic.ngrok-free.dev"] {
   position: fixed;
   bottom: 20px;
   right: 20px;
