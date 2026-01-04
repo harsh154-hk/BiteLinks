@@ -8,7 +8,7 @@ export default function DouppleWidget() {
     <>
       <Script
         src="http://localhost:3000/widget.js"
-        data-agent-id="5e17262b-ec17-41da-9dbf-e1d4b7578558"
+        data-agent-id="995200f5-d024-48a5-bb5c-1a31aff7f506"
         strategy="lazyOnload"
       />
     </>
