@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return(
-  <div className="min-h-screen bg-black">
+  <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
         <div className="text-center">
@@ -23,11 +23,11 @@ export default function HomePage() {
         </div>
 
         {/* Visual Demo */}
-        <div className="mt-16 bg-black rounded-2xl p-8 ">
+        <div className="mt-16 bg-white rounded-2xl p-8 border border-gray-200 ">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 border border-gray-200 p-2 rounded-lg">
               <span className="text-sm font-medium text-gray-500">Before:</span>
-              <div className="flex-1 bg-black rounded-lg px-4 py-3 text-sm text-gray-400  overflow-hidden">
+              <div className="flex-1 bg-white rounded-lg px-4 py-3 text-sm text-gray-400  overflow-hidden">
                 https://example.com/blog/2024/article-title-with-many-words?utm_source=...
               </div>
             </div>
@@ -36,9 +36,9 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 border border-gray-200 p-2 rounded-lg">
               <span className="text-sm font-medium text-gray-900">After:</span>
-              <div className="flex-1 bg-black rounded-lg px-4 py-3 text-sm text-gray-900 font-medium">
+              <div className="flex-1 bg-white rounded-lg px-4 py-3 text-sm text-gray-900 font-medium">
                 bitelinks.co/abc123
               </div>
             </div>
