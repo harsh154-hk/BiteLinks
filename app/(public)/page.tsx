@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return(
-  <div className="min-h-screen bg-white">
+  <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
         <div className="text-center">
