@@ -8,7 +8,7 @@ export default function DouppleWidget() {
     <>
       <Script
         src="https://doupple.vercel.app/widget.js"
-        data-agent-id="0f556b91-702c-47fc-8fff-8746a03eedc7"
+        data-agent-id="3a8fc7d8-7314-46ef-8827-8e00523bcc65"
         strategy="lazyOnload"
       />
     </>
